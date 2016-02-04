@@ -2094,7 +2094,7 @@ class PclZip {
 				// ----- List of items in folder
 				$v_dirlist_descr = array();
 				$v_dirlist_nb = 0;
-				if ($v_folder_handler = @opendir($v_descr['filename'])) {
+				if ($v_folder_handler = opendir($v_descr['filename'])) {
 					while (($v_item_handler = @readdir($v_folder_handler)) !== false) {
 
 						// ----- Skip '.' and '..'
