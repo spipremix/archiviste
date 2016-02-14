@@ -366,7 +366,7 @@ if (!defined("PCL_TAR")) {
 		}
 
 		// ----- Call the extracting fct
-		if (($v_result = PclTarHandleExtract($p_tarname, 0, $p_list, "complete", $p_path, $v_tar_mode,
+		if (($v_result = PclTarHandleExtract($p_tarname, 0, $p_list, "complete", $p_path, $p_mode,
 				$p_remove_path)) != 1
 		) {
 			TrFctEnd(__FILE__, __LINE__, 0, PclErrorString());
@@ -430,7 +430,7 @@ if (!defined("PCL_TAR")) {
 		// ----- Look if the $p_filelist is really an array
 		if (is_array($p_filelist)) {
 			// ----- Call the extracting fct
-			if (($v_result = PclTarHandleExtract($p_tarname, $p_filelist, $p_list, "partial", $p_path, $v_tar_mode,
+			if (($v_result = PclTarHandleExtract($p_tarname, $p_filelist, $p_list, "partial", $p_path, $p_mode,
 					$p_remove_path)) != 1
 			) {
 				TrFctEnd(__FILE__, __LINE__, 0, PclErrorString());
@@ -444,7 +444,7 @@ if (!defined("PCL_TAR")) {
 				$v_list = explode(" ", $p_filelist);
 
 				// ----- Call the extracting fct
-				if (($v_result = PclTarHandleExtract($p_tarname, $v_list, $p_list, "partial", $p_path, $v_tar_mode,
+				if (($v_result = PclTarHandleExtract($p_tarname, $v_list, $p_list, "partial", $p_path, $p_mode,
 						$p_remove_path)) != 1
 				) {
 					TrFctEnd(__FILE__, __LINE__, 0, PclErrorString());
@@ -521,7 +521,7 @@ if (!defined("PCL_TAR")) {
 		if (is_integer($p_index)) {
 			// ----- Call the extracting fct
 			if (($v_result = PclTarHandleExtractByIndexList($p_tarname, "$p_index", $p_list, $p_path, $p_remove_path,
-					$v_tar_mode)) != 1
+					$p_mode)) != 1
 			) {
 				TrFctEnd(__FILE__, __LINE__, 0, PclErrorString());
 
@@ -532,7 +532,7 @@ if (!defined("PCL_TAR")) {
 			if (is_string($p_index)) {
 				// ----- Call the extracting fct
 				if (($v_result = PclTarHandleExtractByIndexList($p_tarname, $p_index, $p_list, $p_path, $p_remove_path,
-						$v_tar_mode)) != 1
+						$p_mode)) != 1
 				) {
 					TrFctEnd(__FILE__, __LINE__, 0, PclErrorString());
 
@@ -3414,25 +3414,25 @@ if (!defined("PCL_TAR")) {
 		// ----- Look for file extension
 		if ((substr($p_tarname, -7) == ".tar.gz") || (substr($p_tarname, -4) == ".tgz")) {
 			TrFctMessage(__FILE__, __LINE__, 2, "Archive is a gzip tar");
-			$v_tar_mode = "tgz";
+			$p_mode = "tgz";
 		} else {
 			if (substr($p_tarname, -4) == ".tar") {
 				TrFctMessage(__FILE__, __LINE__, 2, "Archive is a tar");
-				$v_tar_mode = "tar";
+				$p_mode = "tar";
 			} else {
 				// ----- Error log
 				PclErrorLog(-9, "Invalid archive extension");
 
 				TrFctMessage(__FILE__, __LINE__, PclErrorCode(), PclErrorString());
 
-				$v_tar_mode = "";
+				$p_mode = "";
 			}
 		}
 
 		// ----- Return
-		TrFctEnd(__FILE__, __LINE__, $v_tar_mode);
+		TrFctEnd(__FILE__, __LINE__, $p_mode);
 
-		return $v_tar_mode;
+		return $p_mode;
 	}
 
 	// --------------------------------------------------------------------------------
