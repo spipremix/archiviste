@@ -2,7 +2,7 @@
 
 /**
  * Tests unitaires de l'API d'Archives
- * Decompression de fichiers
+ * Information sur les fichiers
  */
 
 use Spip\Archives\SpipArchives;
