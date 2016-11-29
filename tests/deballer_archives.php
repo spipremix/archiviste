@@ -8,9 +8,9 @@
 use Spip\Archives\SpipArchives;
 
 $test = 'deballer archives';
-$remonte = "../";
-while (!is_dir($remonte . "ecrire")) {
-    $remonte = "../$remonte";
+$remonte = '../';
+while (!is_dir($remonte . 'ecrire')) {
+	$remonte = "../$remonte";
 }
 require $remonte . 'tests/test.inc';
 $ok = true;
@@ -41,5 +41,5 @@ $ok &= file_exists($destination . '/sousrep/fichier');
 nettoyer_contenu_de_test(contenu_de_test(), $destination);
 nettoyer_environnement_test();
 if ($ok) {
-    echo "OK";
+	echo 'OK';
 }

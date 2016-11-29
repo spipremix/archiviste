@@ -8,9 +8,9 @@
 use Spip\Archives\SpipArchives;
 
 $test = 'retirer archives';
-$remonte = "../";
-while (!is_dir($remonte . "ecrire")) {
-    $remonte = "../$remonte";
+$remonte = '../';
+while (!is_dir($remonte . 'ecrire')) {
+	$remonte = "../$remonte";
 }
 require $remonte . 'tests/test.inc';
 $ok = true;
@@ -24,5 +24,5 @@ include_spip('inc/archives');
 $ok = false;
 
 if ($ok) {
-    echo "OK";
+	echo 'OK';
 }
