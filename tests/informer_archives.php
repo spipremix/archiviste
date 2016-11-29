@@ -10,7 +10,7 @@ use Spip\Archives\SpipArchives;
 $test = 'informer archives';
 $remonte = '../';
 while (!is_dir($remonte . 'ecrire')) {
-    $remonte = '../' . $remonte;
+	$remonte = '../' . $remonte;
 }
 require $remonte . 'tests/test.inc';
 $ok = true;
@@ -24,5 +24,5 @@ include_spip('inc/archives');
 $ok = false;
 
 if ($ok) {
-    echo "OK";
+	echo 'OK';
 }

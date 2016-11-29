@@ -10,7 +10,7 @@ use Spip\Archives\SpipArchives;
 $test = 'initialiser archives';
 $remonte = '../';
 while (!is_dir($remonte . 'ecrire')) {
-    $remonte = '../' . $remonte;
+	$remonte = '../' . $remonte;
 }
 require $remonte . 'tests/test.inc';
 $ok = true;
@@ -22,8 +22,8 @@ include_spip('inc/archives');
 
 //extensions inconnues
 foreach (array('sans_extension', 'extension_inconnue', 'faux_amis') as $cas) {
-    $archive = new SpipArchives(fichier_de_test($cas));
-    $ok &= ($archive->erreur() === 2);
+	$archive = new SpipArchives(fichier_de_test($cas));
+	$ok &= ($archive->erreur() === 2);
 }
 
 //presence fichier
@@ -66,5 +66,5 @@ $ok &= ($archive->erreur() === 0);
 
 nettoyer_environnement_test();
 if ($ok) {
-    echo "OK";
+	echo 'OK';
 }
