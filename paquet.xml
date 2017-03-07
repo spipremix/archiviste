@@ -1,12 +1,12 @@
 <paquet
-    prefix="archives"
+    prefix="archiviste"
     categorie="outil"
-    version="0.1.0"
+    version="0.1.1"
     etat="dev"
     compatibilite="[3.2.0-dev;]"
 >   
 
-    <nom>Archives</nom>
+    <nom>Archiviste</nom>
     <!-- Compression Zip, Tar, ... -->
 
     <auteur>Collectif SPIP</auteur>
